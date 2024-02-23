@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Medication{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-3 mb-4">Medication</h1>
+
+<style>
+    .dashboard-square {
+        background-color: #5DADE2; 
+        padding: 20px;
+        border-radius: 10px;
+        height: 250px;  /* Adjust as needed */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-square .square-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+
+    .dashboard-square .square-title {
+        margin-bottom: 10px;
+    }
+
+    /* Additional Style for Prescription and DDI Boxes */
+    .dashboard-square-inner {
+        background-color: #FFF; 
+        padding: 20px;
+        border-radius: 10px;
+        height: 100%;  /* Adjust as needed */
+        width: 100%;   /* Adjust as needed */
+        border: 2px solid #5DADE2;  /* Border color same as original box */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+
+<!-- Medication Boxes -->
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{% url 'prescription' %}" class="text-decoration-none">
+                <div class="dashboard-square">
+                    <div class="dashboard-square-inner">
+                        <i class="fas fa-prescription-bottle-alt square-icon"></i>
+                        <h4 class="square-title">Prescription</h4>
+                        <p>View and manage prescriptions.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{% url 'ddi' %}" class="text-decoration-none">
+                <div class="dashboard-square">
+                    <div class="dashboard-square-inner">
+                        <i class="fas fa-exclamation-triangle square-icon"></i>
+                        <h4 class="square-title">DDI</h4>
+                        <p>Check for Drug-Drug Interactions.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+  <!-- Back Button -->
+  <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Dashboard</a>
+{% endblock %}

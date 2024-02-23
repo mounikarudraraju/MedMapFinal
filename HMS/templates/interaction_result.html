@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction Result</title>
+    <style>
+        .dialog-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    {% if result %}
+        <div class="dialog-box">
+            <h3>Interaction Result</h3>
+            <p>Interaction mechanism: {{ result }}</p>
+        </div>
+    {% else %}
+        <div class="dialog-box">
+            <h3>No Interaction Found</h3>
+            <p>No interaction was found between the provided medications.</p>
+        </div>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug-Drug Interaction (DDI) Checker</title>
+</head>
+<body>
+    <h1>Drug-Drug Interaction (DDI) Checker</h1>
+
+    <!-- Display form for DDI -->
+    <form method="post" action="{% url 'medication_interaction_view' %}">
+        {% csrf_token %}
+        <label for="med_list_a">Medication List A:</label><br>
+        <input type="text" name="med_list_a[]" value="Bivalirudin"><br>
+        <input type="text" name="med_list_a[]" value="MedA2"><br>
+
+        <label for="med_list_b">Medication List B:</label><br>
+        <input type="text" name="med_list_b[]" value="Apixaban"><br>
+        <input type="text" name="med_list_b[]" value="MedB2"><br>
+
+        <input type="submit" value="Check Interaction">
+    </form>
+
+    <a href="{% url 'home' %}" class="btn btn-primary mt-3">Back to Dashboard</a>
+</body>
+</html>
